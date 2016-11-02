@@ -1,4 +1,8 @@
 
+<p>
+  <%= link_to 'Invoices', invoices_path(project_id: @project.identifier) %>
+</p>
+
 <div class="autoscroll">
   <table class="list issues">
     <thead>
@@ -6,7 +10,7 @@
         <th>Name</th>
         <th>Address</th>
         <th>Director name</th>
-        <th>Tax number</th>
+        <th>Identifier</th>
         <th>VAT number</th>
         <th>Bank name</th>
         <th>Bank BIC</th>
@@ -20,7 +24,7 @@
           <td><%= company.name %></td>
           <td><%= company.address %></td>
           <td><%= company.director_name %></td>
-          <td><%= company.tax_number %></td>
+          <td><%= company.identifier %></td>
           <td><%= company.vat_number %></td>
           <td><%= company.bank_name %></td>
           <td><%= company.bank_bic %></td>

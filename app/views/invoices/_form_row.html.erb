@@ -1,0 +1,27 @@
+<p>
+  <label for="title">Title</label>
+  <%= ff.text_field :title %>
+</p>
+<p>
+  <label for="amount">Amount</label>
+  <%= ff.text_field :amount %>
+</p>
+<p>
+  <label for="amount_in_currency">Amount in currency</label>
+  <%= ff.text_field :amount_in_currency %>
+</p>
+<p>
+  <label for="quantity">Quantity</label>
+  <%= ff.text_field :quantity %>
+</p>
+<p>
+  <label for="amount_per_hour">Amount per hour</label>
+  <%= ff.text_field :amount_per_hour %>
+</p>
+
+<% if ff.object.persisted? %>
+  <p>
+    <label for="_destroy">Destroy</label>
+    <%= ff.check_box :_destroy %>
+  </p>
+<% end %>

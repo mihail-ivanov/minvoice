@@ -52,7 +52,7 @@ class CompaniesController < ApplicationController
 
   def company_params
     params.require(:company).permit(
-      :name, :address, :director_name, :tax_number,
+      :name, :address, :director_name, :identifier,
       :vat_number, :bank_name, :bank_bic, :bank_iban
     )
   end

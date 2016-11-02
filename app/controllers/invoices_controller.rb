@@ -11,6 +11,7 @@ class InvoicesController < ApplicationController
 
   def new
     @invoice = Invoice.new
+    @invoice.issue_date = Date.today
     @invoice.invoice_rows.build
 
     @companies = Company.where(project_id: @project.id).order(:name)
@@ -77,6 +78,7 @@ class InvoicesController < ApplicationController
   def invoice_params
     params.require(:invoice).permit(
       :number, :issue_date, :total_amount, :total_amount_words,
+      :total_net_amount, :total_net_amount_words,
       :total_vat_amount, :total_vat_amount_words, :currency,
       :additional_currency, :description, :invoice_template_id,
       invoice_rows_attributes: [:title, :amount, :amount_in_currency, :quantity, :amount_per_hour]

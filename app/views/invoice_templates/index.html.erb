@@ -1,5 +1,9 @@
 
 <p>
+  <%= link_to 'Invoices', invoices_path(project_id: @project.identifier) %>
+</p>
+
+<p>
   <%= link_to 'New invoice template', new_invoice_template_path(project_id: @project.identifier) %>
 </p>
 

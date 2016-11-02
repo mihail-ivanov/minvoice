@@ -21,6 +21,7 @@
         <th>Contractor</th>
         <th>Recipient</th>
         <th>Total amount</th>
+        <th>Net amount</th>
         <th>VAT amount</th>
         <th>Currency</th>
         <th>Description</th>
@@ -35,11 +36,13 @@
           <td><%= invoice.contractor_name %></td>
           <td><%= invoice.recipient_name %></td>
           <td><%= invoice.total_amount %></td>
+          <td><%= invoice.total_net_amount %></td>
           <td><%= invoice.total_vat_amount %></td>
           <td><%= invoice.currency %></td>
           <td><%= invoice.description %></td>
           <td>
             <%= link_to 'Edit', edit_invoice_path(invoice, project_id: @project.identifier) %>
+            <br />
             <%= link_to 'Export', export_invoice_path(invoice, project_id: @project.identifier, format: :pdf) %>
           </td>
       </tr>

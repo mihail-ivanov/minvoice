@@ -7,6 +7,8 @@ class CreateInvoices < ActiveRecord::Migration
       t.date :issue_date
       t.decimal :total_amount
       t.string :total_amount_words
+      t.decimal :total_net_amount
+      t.string :total_net_amount_words
       t.decimal :total_vat_amount
       t.string :total_vat_amount_words
       t.string :currency
@@ -15,7 +17,7 @@ class CreateInvoices < ActiveRecord::Migration
       t.string :contractor_name
       t.string :contractor_address
       t.string :contractor_director_name
-      t.string :contractor_tax_number
+      t.string :contractor_identifier
       t.string :contractor_vat_number
       t.string :contractor_bank_name
       t.string :contractor_bank_bic
@@ -24,7 +26,7 @@ class CreateInvoices < ActiveRecord::Migration
       t.string :recipient_name
       t.string :recipient_address
       t.string :recipient_director_name
-      t.string :recipient_tax_number
+      t.string :recipient_identifier
       t.string :recipient_vat_number
       t.string :recipient_bank_name
       t.string :recipient_bank_bic
