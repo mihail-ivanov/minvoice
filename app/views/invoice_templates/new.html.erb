@@ -1,0 +1,7 @@
+
+<%= render :partial => 'help' %>
+
+<%= form_for @invoice_template, url: invoice_templates_path(project_id: @project.identifier) do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <%= submit_tag l(:button_save) %>
+<% end %>

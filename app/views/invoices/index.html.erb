@@ -1,0 +1,49 @@
+
+<p>
+  <%= link_to 'Companies', companies_path(project_id: @project.identifier) %>
+</p>
+
+<p>
+  <%= link_to 'Invoice templates', invoice_templates_path(project_id: @project.identifier) %>
+</p>
+
+<p>
+  <%= link_to 'New invoice', new_invoice_path(project_id: @project.identifier) %>
+</p>
+
+
+<div class="autoscroll">
+  <table class="list issues">
+    <thead>
+      <tr>
+        <th>Number</th>
+        <th>Issue date</th>
+        <th>Contractor</th>
+        <th>Recipient</th>
+        <th>Total amount</th>
+        <th>VAT amount</th>
+        <th>Currency</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @invoices.each do |invoice| %>
+        <tr id="invoice-<%= invoice.id %>" class="hascontextmenu <%= cycle('odd', 'even') %>">
+          <td><%= invoice.number %></td>
+          <td><%= invoice.issue_date %></td>
+          <td><%= invoice.contractor_name %></td>
+          <td><%= invoice.recipient_name %></td>
+          <td><%= invoice.total_amount %></td>
+          <td><%= invoice.total_vat_amount %></td>
+          <td><%= invoice.currency %></td>
+          <td><%= invoice.description %></td>
+          <td>
+            <%= link_to 'Edit', edit_invoice_path(invoice, project_id: @project.identifier) %>
+            <%= link_to 'Export', export_invoice_path(invoice, project_id: @project.identifier, format: :pdf) %>
+          </td>
+      </tr>
+      <%end %>
+    </tbody>
+  </table>
+</div>

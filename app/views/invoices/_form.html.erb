@@ -1,0 +1,89 @@
+<%= error_messages_for 'invoice' %>
+
+<div class="box tabular">
+  <h2>Invoice</h2>
+
+  <p>
+    <label for="text">Number</label>
+    <%= f.text_field :number %>
+  </p>
+  <p id="issue_date_area">
+    <label for="issue_date">Issue date</label>
+    <%= f.date_field(:issue_date, :size => 10, required: true) %>
+    <%= calendar_for('issue_date') %>
+  </p>
+  <p>
+    <label for="contractor_company_id">Contractor</label>
+    <%= f.select :contractor_id, @companies.collect {|c| [c.name, c.id]}, include_blank: true %>
+  </p>
+  <p>
+    <label for="recipient_company_id">Recipient</label>
+    <%= f.select :recipient_id, @companies.collect {|c| [c.name, c.id]}, include_blank: true %>
+  </p>
+  <p>
+    <label for="text">Total amount</label>
+    <%= f.text_field :total_amount %>
+  </p>
+  <p>
+    <label for="text">Total amount in words</label>
+    <%= f.text_field :total_amount_words %>
+  </p>
+  <p>
+    <label for="text">Total VAT amount</label>
+    <%= f.text_field :total_vat_amount %>
+  </p>
+  <p>
+    <label for="text">Total VAT amount in words</label>
+    <%= f.text_field :total_vat_amount_words %>
+  </p>
+  <p>
+    <label for="text">Currency</label>
+    <%= f.text_field :currency %>
+  </p>
+  <p>
+    <label for="text">Additional currency</label>
+    <%= f.text_field :additional_currency %>
+  </p>
+  <p>
+    <label for="text">Description</label>
+    <%= f.text_field :description %>
+  </p>
+  <p>
+    <label for="invoice_template_id">Template</label>
+    <%= f.select :invoice_template_id, @invoice_templates.collect {|c| [c.name, c.id]}, include_blank: true %>
+  </p>
+</div>
+
+<div class="box tabular">
+  <h2>Invoice rows</h2>
+
+  <%= f.fields_for :invoice_rows do |ff| %>
+    <p>
+      <label for="title">Title</label>
+      <%= ff.text_field :title %>
+    </p>
+    <p>
+      <label for="amount">Amount</label>
+      <%= ff.text_field :amount %>
+    </p>
+    <p>
+      <label for="amount_in_currency">Amount in currency</label>
+      <%= ff.text_field :amount_in_currency %>
+    </p>
+    <p>
+      <label for="quantity">Quantity</label>
+      <%= ff.text_field :quantity %>
+    </p>
+    <p>
+      <label for="amount_per_hour">Amount per hour</label>
+      <%= ff.text_field :amount_per_hour %>
+    </p>
+
+    <% if ff.object.persisted? %>
+      <p>
+        <label for="_destroy">Destroy</label>
+        <%= ff.check_box :_destroy %>
+      </p>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,23 @@
+
+<div class="box tabular">
+  <h3>Predefined variables</h3>
+
+  <table>
+    <% Invoice::TEMPLATE_VARS.keys.each_slice(4) do |slice| %>
+      <tr>
+        <% slice.each do |variable| -%>
+          <td><%= variable %></td>
+        <% end -%>
+      </tr>
+    <% end %>
+
+    <% Invoice::INVOICE_ROW_VARS.keys.each_slice(4) do |slice| %>
+      <tr>
+        <% slice.each do |variable| -%>
+          <td><%= variable %></td>
+        <% end -%>
+      </tr>
+    <% end %>
+  </table>
+
+</div>

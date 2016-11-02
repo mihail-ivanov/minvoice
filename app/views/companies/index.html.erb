@@ -1,0 +1,40 @@
+
+<div class="autoscroll">
+  <table class="list issues">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Director name</th>
+        <th>Tax number</th>
+        <th>VAT number</th>
+        <th>Bank name</th>
+        <th>Bank BIC</th>
+        <th>Bank IBAN</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @companies.each do |company| %>
+        <tr id="company-<%= company.id %>" class="hascontextmenu <%= cycle('odd', 'even') %>">
+          <td><%= company.name %></td>
+          <td><%= company.address %></td>
+          <td><%= company.director_name %></td>
+          <td><%= company.tax_number %></td>
+          <td><%= company.vat_number %></td>
+          <td><%= company.bank_name %></td>
+          <td><%= company.bank_bic %></td>
+          <td><%= company.bank_iban %></td>
+          <td><%= link_to 'Edit', edit_company_path(company, project_id: @project.identifier) %></td>
+      </tr>
+      <%end %>
+    </tbody>
+  </table>
+</div>
+
+<h2>Create new company</h2>
+
+<%= form_for @company, url: companies_path(project_id: @project.identifier) do |f| %>
+  <%= render :partial => 'form', :locals => {:f => f} %>
+  <%= submit_tag l(:button_save) %>
+<% end %>

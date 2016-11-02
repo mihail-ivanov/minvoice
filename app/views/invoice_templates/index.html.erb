@@ -1,0 +1,26 @@
+
+<p>
+  <%= link_to 'New invoice template', new_invoice_template_path(project_id: @project.identifier) %>
+</p>
+
+
+<div class="autoscroll">
+  <table class="list issues">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @invoice_templates.each do |invoice_template| %>
+        <tr id="invoice-template-<%= invoice_template.id %>" class="hascontextmenu <%= cycle('odd', 'even') %>">
+          <td><%= invoice_template.name %></td>
+          <td>
+            <%= link_to 'Edit', edit_invoice_template_path(invoice_template, project_id: @project.identifier) %>
+          </td>
+      </tr>
+      <%end %>
+    </tbody>
+  </table>
+</div>
