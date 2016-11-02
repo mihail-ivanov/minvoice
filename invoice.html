@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <style>
+    .invoice-box{
+        max-width:800px;
+        margin:auto;
+        padding:30px;
+        border:1px solid #eee;
+        box-shadow:0 0 10px rgba(0, 0, 0, .15);
+        font-size:12px;
+        line-height:18px;
+        font-family:'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;
+        color:#555;
+    }
+
+    .invoice-box table{
+        width:100%;
+        line-height:inherit;
+        text-align:left;
+    }
+
+    .invoice-box table td{
+        padding:5px;
+        vertical-align:top;
+    }
+
+    .invoice-box table tr td:nth-child(2){
+        text-align:right;
+    }
+
+    .invoice-box table tr.top table td{
+        padding-bottom:20px;
+    }
+
+    .invoice-box table tr.top table td.title{
+        font-size:45px;
+        line-height:45px;
+        color:#333;
+    }
+
+    span.title{
+        font-size:45px;
+        line-height:45px;
+        color:#333;
+    }
+
+    span.additional {
+        font-size:35px;
+        line-height:45px;
+        color:#AAA;
+    }
+
+    .invoice-box table tr.information table td{
+        padding-bottom:40px;
+    }
+
+    .invoice-box table tr.heading td{
+        background:#eee;
+        border-bottom:1px solid #ddd;
+        font-weight:bold;
+    }
+
+    .invoice-box table tr.details td{
+        padding-bottom:20px;
+    }
+
+    .invoice-box table tr.item td{
+        border-bottom:1px solid #eee;
+    }
+
+    .invoice-box table tr.item.last td{
+        border-bottom:none;
+    }
+
+    .invoice-box table tr.total td:nth-child(2){
+        border-top:2px solid #eee;
+        font-weight:bold;
+    }
+
+    @media only screen and (max-width: 600px) {
+        .invoice-box table tr.top table td{
+            width:100%;
+            display:block;
+            text-align:center;
+        }
+
+        .invoice-box table tr.information table td{
+            width:100%;
+            display:block;
+            text-align:center;
+        }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="invoice-box">
+        <table>
+            <tr>
+                <td>
+                    <table>
+                        <tr>
+                            <td>
+                                <span class="title">ФАКТУРА</span>
+                            </td>
+
+                            <td>
+                                Номер: 123<br>
+                                Дата: 01.11.2016 г.<br>
+                            </td>
+                        </tr>
+                    </table>
+                </td>
+            </tr>
+        </table>
+
+        <table>
+            <tr class="heading">
+                <td style="width: 50%;">Получател</td>
+                <td style="width: 50%;">Доставчик</td>
+            </tr>
+            <tr>
+                <td style="width: 50%;"><strong>Фенбустър ЕООД</strong></td>
+                <td style="text-align:left; width: 50%;"><strong>Мюплекс ЕООД</strong></td>
+            </tr>
+            <tr>
+                <td style="width: 50%;">София, ж.к. Гоце Делчев, бл. 22, вх. А, ет. 8, ап. 38</td>
+                <td style="text-align:left; width: 50%;">София, ж.к. Манас.ливади-Изток, ул.Боянски водопад, бл.30</td>
+            </tr>
+
+            <tr>
+                <td>
+                    <strong>ЕИК/Булстат: </strong>1234123<br />
+                    <strong>ЗДДС №: </strong>12341<br />
+                    <strong>М.О.Л.: </strong>Олав Егум<br />
+
+                    <strong>Банка: </strong><br />
+                    <strong>BIC: </strong><br />
+                    <strong>IBAN: </strong>
+                </td>
+                <td style="text-align:left">
+                    <strong>ЕИК/Булстат: </strong>5123512<br />
+                    <strong>ЗДДС №: </strong>12341<br />
+                    <strong>М.О.Л.: </strong>Михаил Иванов<br />
+
+                    <strong>Банка: </strong>Първа Инвестиционна Банка АД<br />
+                    <strong>BIC: </strong>FINVBGSF<br />
+                    <strong>IBAN: </strong>BG26FINV91501016112973
+                </td>
+            </tr>
+        </table>
+
+        <p></p>
+        <hr />
+
+        <table>
+
+            <tr>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+
+            <tr class="heading">
+                <td style="width:auto;">№</td>
+                <td>Наименование на стоката/услугата</td>
+                <td>Количество</td>
+                <td>Единична цена</td>
+                <td style="width:120px;">Стойност</td>
+            </tr>
+
+            <tr class="item">
+                <td style="width:auto;">1</td>
+                <td style="text-align:left;">Програмиране за различни цели и доста интересни неща</td>
+                <td></td>
+                <td></td>
+                <td style="width:120px; text-align: right;">1250.00 лв.</td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <td style="width: 33%"></td>
+                <td style="width: 33%">ВСИЧКО:</td>
+                <td style="width: 33%; text-align: right;">1250.00 лв.</td>
+            </tr>
+            <tr>
+                <td style="width: 33%"></td>
+                <td style="width: 33%">Данъчна основа:</td>
+                <td style="width: 33%; text-align: right;">1250.00 лв.</td>
+            </tr>
+            <tr>
+                <td style="width: 33%">Основание за неначисляване: чл. 113, ал. 9</td>
+                <td style="width: 33%">Начислен ДДС, ставка 0%:</td>
+                <td style="width: 33%; text-align: right;"></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr class="total">
+                <td></td>
+                <td>Сума за плащане: 1250.00 лв.</td>
+            </tr>
+        </table>
+
+        <hr />
+        <table>
+            <tr>
+                <td>СЛОВОМ: хиляда двеста и петдесет, 0.00</td>
+            </tr>
+        </table>
+        <hr />
+        <table style="width: 70%;">
+            <tr>
+                <td>Стоката получена на: </td>
+                <td>01.11.2016 г.</td>
+            </tr>
+
+            <tr>
+                <td>Дата на данъчното събитие или авансовото плащане: </td>
+                <td>01.11.2016 г.</td>
+            </tr>
+        </table>
+        <hr />
+
+        <br />
+        <br />
+        <br />
+
+        <table>
+            <tr>
+                <td>Подпис на получателя:..................................</td>
+                <td>Подпис на съставителя:..................................</td>
+            </tr>
+        </table>
+
+    </div>
+</body>
+</html>
